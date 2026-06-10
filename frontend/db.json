@@ -1,0 +1,23 @@
+{
+  "notes": [
+    {
+      "title": "HTML5",
+      "content": "A Markup language for the front-end developer",
+      "id": "Aah-OvVaYF4",
+      "important": false
+    },
+    {
+      "id": "ZMfTL5hfgSA",
+      "title": "CSS",
+      "content": "A styling language for the front end developer",
+      "important": false
+    },
+    {
+      "title": "JavaScript",
+      "content": "A programming language for making web pages interactive",
+      "id": "zAW0G1pPDSc",
+      "important": false
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
