@@ -11,7 +11,7 @@ function App() {
   const [newTaskTitle, setNewTaskTitle] = useState('Note Name');
   const [important, setImportant] = useState(false);
   
-  const baseUrl = "http://localhost:3000"
+  const baseUrl = "http://localhost:10000"
 
   const notesToShow = important ? tasks.filter(note => note.important) : tasks;
 
