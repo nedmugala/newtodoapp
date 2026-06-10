@@ -11,25 +11,25 @@ function App() {
   const [newTaskTitle, setNewTaskTitle] = useState('Note Name');
   const [important, setImportant] = useState(false);
   
-  const baseUrl = "http://localhost:10000"
+  
 
   const notesToShow = important ? tasks.filter(note => note.important) : tasks;
 
   useEffect(() => {
-    axios.get(`${baseUrl}/notes`)
+    axios.get(`/notes`)
       .then(response => setTasks(response.data))
       .catch(error => console.error('Error fetching tasks:', error));
   }, []);
 
   //DELETING A NOTE
   const handleDelete=(id) => {
-    axios.delete(`${baseUrl}/notes/${id}`)
+    axios.delete(`/notes/${id}`)
       .then(() => setTasks(tasks.filter(task => task.id !== id)))
       .catch(error => console.error('Error deleting task:', error));
   };
   // update note
   function updatedNote(id, updatedData) {
-    axios.put(`${baseUrl}/edit/notes/${id}`, updatedData)
+    axios.put(`/edit/notes/${id}`, updatedData)
       .then(response => {
         setTasks(tasks.map(task => task.id === id ? response.data : task));
       })
@@ -38,7 +38,7 @@ function App() {
   //TOGGLING IMPORTANCE
   const toggleImportance =(note)=> {
     const updatedNote = { ...note, important: !note.important };
-    axios.put(`${baseUrl}/notes/${note.id}`, updatedNote)
+    axios.put(`/notes/${note.id}`, updatedNote)
       .then(response => {
         setTasks(tasks.map(task => task.id === note.id ? response.data : task));
       })
@@ -48,7 +48,7 @@ function App() {
   //MARKING COMPLETE
   function markComplete (note){
     const updatedNote = {...note, complete : !note.complete}
-    axios.put(`${baseUrl}/notes/${note.id}`, updatedNote)
+    axios.put(`/notes/${note.id}`, updatedNote)
     .then(response=>{
        setTasks(tasks.map((item)=>{
         
@@ -70,7 +70,7 @@ function App() {
       content: newTask,
       important : true
     }
-    axios.post(`${baseUrl}/notes`, newOBJ)
+    axios.post(`/notes`, newOBJ)
       .then(response => {
         setTasks([...tasks, response.data]);
         setNewTask('');
