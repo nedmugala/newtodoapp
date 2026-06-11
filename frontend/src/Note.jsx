@@ -15,6 +15,7 @@ function Note({ note, deleteNote, toggleImportance, updateNote,markComplete }) {
       className={`card mb-3 ${note.important ? "bg-warning" : "bg-light"}`}
       style={{ border: "1px solid #ccc" }}
     >
+      <p className="btn btn-primary">{count}</p>
       <div className="card-body">
         {edit ? (
           <>

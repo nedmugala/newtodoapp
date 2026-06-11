@@ -139,9 +139,10 @@ function App() {
     <p>No tasks yet! Start by adding a new task.</p>
   ) : (
     <ul className="list-group">
-      {notesToShow.map(task => (
+      {notesToShow.map((task, i) => (
         
-          <Note key={task.id}
+          <Note count={i}
+          key={task.id}
           deleteNote={handleDelete} updateNote={updatedNote}
            toggleImportance={toggleImportance}
             note={task} className="list-group item"
