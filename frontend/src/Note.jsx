@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Note({ note, deleteNote, toggleImportance, updateNote,markComplete }) {
+function Note({ note, deleteNote, toggleImportance, updateNote,markComplete,count }) {
   const [edit, setEdit] = useState(false);
   const [editedTitle, setEditedTitle] = useState(note.title);
   const [editedContent, setEditedContent] = useState(note.content);
